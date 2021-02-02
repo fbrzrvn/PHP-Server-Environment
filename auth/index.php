@@ -1,9 +1,5 @@
 <link rel="stylesheet" href="./css/style.css">
 
-<?php
-  session_start();
-?>
-
 <div class="wrapper">
   <h1>Sign In</h1>
   <form action="./validate.php" method="POST">
@@ -12,3 +8,10 @@
     <button class="btn" type="submit">Submit</button>
   </form>
 </div>
+
+<?php
+  session_start();
+  if (isset($_SESSION['username']) && isset($_SESSION['password'])) {
+    header('location: ./panel.php');
+  }
+?>
